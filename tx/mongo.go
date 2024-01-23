@@ -76,6 +76,8 @@ func (m *_Mongo) Transaction(ctx context.Context, fn func(ctx context.Context) e
 			return err
 		}
 	}
+	// todo fix docdbcontext canceled
+	return fn(ctx)
 	if m.tx == nil {
 		return fn(ctx)
 	}
